@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class Inventory {
-    private List<Product> stock = new ArrayList<>();
+// Product를 상속받은 클래스만 사용 가능 
+public class Inventory<T extends Product> {
+    private List<T> stock = new ArrayList<>();
 
-    void addStock(Product item) {
+    void addStock(T item) {
         stock.add(item);
     }
 
-    Product search(String name) {
-        for (Product item : stock) {
+    T search(String name) {
+        for (T item : stock) {
             if (item.name.equals(name)) {
                 return item;
             }
